@@ -1,0 +1,32 @@
+# Render Blueprint Configuration for AsisTrack
+# https://render.com/docs/blueprint-spec
+
+services:
+  # Web Service (Node.js + Express + React Frontend)
+  - type: web
+    name: asistrack-app
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: asistrack-db
+          property: connectionString
+
+databases:
+  # PostgreSQL Database Service on Render
+  - name: asistrack-db
+    databaseName: asistrack
+    user: asistrack_user
+    plan: free
+    region: oregon
+    ipAllowList: [] # Allows connections from all Render services

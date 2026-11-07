@@ -1,0 +1,6 @@
+{
+  "name": "AsisTrack - Sistema de Gestión de Asistencia Escolar",
+  "description": "Sistema web integral para la gestión y control de asistencia escolar en colegios secundarios, con estadísticas en tiempo real, reportes, cursos y perfiles de directivos y docentes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
